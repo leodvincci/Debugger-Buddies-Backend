@@ -1,11 +1,21 @@
 package com.example.debuggerduckbackend.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class UserModel {
+    @SequenceGenerator(
+            name = "user_sequence",
+            sequenceName = "user_sequence",
+            allocationSize = 1
+    )
+
+
     @Id
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "user_sequence"
+    )
     private Long id;
     private String firstName;
     private String lastName;

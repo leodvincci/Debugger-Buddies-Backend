@@ -29,4 +29,9 @@ public class UserModelService {
         return userList;
     }
 
+    public void deleteUser(UserModel user){
+        userModelRepo.delete(user);
+        System.out.println("User Was Removed");
+    }
+
 }
